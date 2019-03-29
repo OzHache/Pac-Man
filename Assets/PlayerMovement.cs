@@ -31,12 +31,17 @@ public class PlayerMovement : MonoBehaviour
             //rotate
             RotatePacMan();
             //See if we can go that way
-            RaycastHit2D hit = 
-            Physics2D.Raycast(transform.position, transform.right, lineLenght);
-            Debug.Log(hit.collider.name);
-            //todo: Manage collisions - 
-            //move that direction
-            MoveCharacter();
+         
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, lineLenght);
+            if (hit)
+            {
+                Debug.Log(hit.collider.name);
+                return;
+            }
+                //todo: Manage collisions - 
+                //move that direction
+                MoveCharacter();
+            
         }
 
     }
