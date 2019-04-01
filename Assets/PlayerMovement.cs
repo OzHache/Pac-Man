@@ -31,11 +31,12 @@ public class PlayerMovement : MonoBehaviour
             //rotate
             RotatePacMan();
             //See if we can go that way
-         
+            //Todo: Create ref to Layermask for Wall
             RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, lineLenght);
             if (hit)
             {
                 Debug.Log(hit.collider.name);
+                rb.velocity = Vector3.zero;
                 return;
             }
                 //todo: Manage collisions - 
