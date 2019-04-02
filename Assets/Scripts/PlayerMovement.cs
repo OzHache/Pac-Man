@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     Direction facing;
     public float speed;
     [Header("Gizmo Line Lenght")]
-    public float lineLenght; 
+    public float lineLength; 
 
 
     private Rigidbody2D rb;
@@ -28,19 +28,17 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
             GetDirection();
-            //rotate
+
             RotatePacMan();
-            //See if we can go that way
-            //Todo: Create ref to Layermask for Wall
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, lineLenght);
+
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, lineLength, 0);
             if (hit)
             {
                 Debug.Log(hit.collider.name);
                 rb.velocity = Vector3.zero;
                 return;
             }
-                //todo: Manage collisions - 
-                //move that direction
+                
                 MoveCharacter();
             
         }
@@ -55,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
          * long the line should be
          */
         Gizmos.DrawLine(transform.position, transform.position + 
-        (transform.right * lineLenght));
+        (transform.right * lineLength));
 
     }
 
