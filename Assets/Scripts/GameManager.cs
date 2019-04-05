@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     /* Things we need
-     * Score - Pellets -> points
+     * Score - Pellets -> points (Done)
      * Next Level -> Pellets = 0
      * Lives -> Ghost touch --  -> Each Level ++
      * End of game win screen

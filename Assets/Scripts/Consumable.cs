@@ -11,6 +11,7 @@ public class Consumable : MonoBehaviour
         //needs to update scores
         GameManager.GetGameManager.ScoreUpdate(ScoreValue);
         //destroy
-        DestroyObject(gameObject, 0f);
+        Destroy(gameObject, 0f);
     }
+    
 }
