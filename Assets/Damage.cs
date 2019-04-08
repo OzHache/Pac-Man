@@ -11,6 +11,7 @@ public class Damage : MonoBehaviour
             Debug.Log("You've Died :( ");
 
             //todo: ref in GM and lose life
+            GameManager.GetGameManager.LivesUpdate();
         }
     }
 }

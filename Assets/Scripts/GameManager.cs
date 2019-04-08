@@ -15,13 +15,20 @@ public class GameManager : MonoBehaviour
      * Lives counter updated
      * Ghost vulnerable -> Big Pellets
      */
+    private int lives = 3;
     private int score = 0;
+    private Vector3 origin;
     public static GameManager GetGameManager;
     public Text ScoreText; // assigned in the inspector
+    public Text LivesText;
+    public GameObject PacMan;
+    public GameObject GameOverPanel; 
 
     private void Start()
     {
         GetGameManager = this;
+        //capture Pac-Man Origin as Vector3
+        origin = PacMan.transform.position;
     }
 
     public void ScoreUpdate(int value)
@@ -30,9 +37,20 @@ public class GameManager : MonoBehaviour
         UpdateUI();
     }
 
+    public void LivesUpdate()
+    {
+        lives--;
+        UpdateUI();
+        //todo: Reset Pac-Man
+        PacMan.transform.position = origin;
+        PacMan.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        //check for gameover
+    }
+
     private void UpdateUI()
     {
         ScoreText.text = score.ToString();
+        LivesText.text = lives.ToString();
     }
 
 }
