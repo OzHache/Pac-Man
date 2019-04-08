@@ -45,6 +45,10 @@ public class GameManager : MonoBehaviour
         PacMan.transform.position = origin;
         PacMan.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         //check for gameover
+        if (lives <= 0)
+        {
+            GameOverPanel.SetActive(true);
+        }
     }
 
     private void UpdateUI()
