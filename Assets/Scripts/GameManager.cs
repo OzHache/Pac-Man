@@ -22,7 +22,8 @@ public class GameManager : MonoBehaviour
     public Text ScoreText; // assigned in the inspector
     public Text LivesText;
     public GameObject PacMan;
-    public GameObject GameOverPanel; 
+    public GameObject GameOverPanel;
+    public GameObject[] Ghosts;
 
     private void Start()
     {
@@ -55,6 +56,15 @@ public class GameManager : MonoBehaviour
     {
         ScoreText.text = score.ToString();
         LivesText.text = lives.ToString();
+    }
+
+    public void EatGhost()
+    {
+        //go through the array of ghost and trigger the Make Vulnerable method
+        for(int i = 0; i < Ghosts.Length; i++)
+        {
+            Ghosts[i].GetComponent<Ghost>().MakeVulnerable();
+        }
     }
 
 }

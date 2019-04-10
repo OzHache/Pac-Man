@@ -10,10 +10,4 @@ public class SmallPellet : Consumable
         ScoreValue = 10;
         //todo: Apply to all small pellets
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
